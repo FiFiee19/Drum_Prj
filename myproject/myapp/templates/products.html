@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<div class="title-name">Products</div>
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    {% for product in all_product %}
+    <div class="card">
+        <div class="img-card">
+            <img src="{{ product.images.url }}" style="width:100%">
+        </div>
+        <div class="description">
+            <h4>{{ product.name }}</h4>
+            <p class="number">{{ product.price }} ฿</p>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

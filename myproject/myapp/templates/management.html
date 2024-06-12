@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'allcss.css'%}">
+    <title>management</title>
+</head>
+
+<body>
+    <nav>
+    </nav>
+    <div class="header-container">
+        <h2> All Product</h2>
+        <div class="header-buttons">
+        <a href="/forms" class="button-add">+เพิ่มสินค้า</a>
+        </div>
+    </div>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong>{{message}}</strong> 
+          </div>
+        {% endfor %}
+
+
+    {% endif %}
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="center">ชื่อสินค้า</th>
+                    <th class="center">ราคา</th>
+                    <th class="center">แก้ไข</th>
+                    <th class="center">ลบ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in product_manage %}
+                <tr>
+                    <td class="left">{{ p.name }}</td>
+                    <td class="center">{{ p.price }}</td>
+                    <td class="center"><a href="edit/{{p.id}}" class="button-edit">แก้ไข</a></td>
+                    <td class="center"><a href="delete/{{p.id}}" class="button-delete">ลบ</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
