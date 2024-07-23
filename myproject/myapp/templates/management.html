@@ -10,10 +10,8 @@
 </head>
 
 <body>
-    <nav>
-    </nav>
     <div class="header-container">
-        <h2> All Product</h2>
+        <h2> management</h2>
         <div class="header-buttons">
         <a href="/forms" class="button-add">+เพิ่มสินค้า</a>
         </div>
@@ -42,7 +40,7 @@
                 {% for p in product_manage %}
                 <tr>
                     <td class="left">{{ p.name }}</td>
-                    <td class="center">{{ p.price }}</td>
+                    <td class="center">{{ p.price|floatformat:'g' }}</td>
                     <td class="center"><a href="edit/{{p.id}}" class="button-edit">แก้ไข</a></td>
                     <td class="center"><a href="delete/{{p.id}}" class="button-delete">ลบ</a></td>
                 </tr>

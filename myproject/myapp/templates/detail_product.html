@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<div class="title-name"></div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="detail">
+        <h1 style="color: white; margin: 0;">{{ product.name }}</h1>
+    </div>
+    <div class="price-detail">
+    <p style="color: white; font-size: 30px; margin: 0; text-align: right;">{{ product.price|floatformat:'g' }} ฿</p>
+</div>
+<div class="img-detail">
+    {% for image in product.images.all %}
+    <img src="{{ image.images.url }}" style="width:60%; ">
+    {% endfor %}
+</div>
+
+</div><br><br><br>
+{% endblock %}
+
+{% block footer %}
+<section class="container-footer">
+    <div>
+        <h2 style="color: black;">DRUM JOURNEY</h2>
+        <p class="description-store">ร้านของเราจำหน่ายกลองสแนร์/ฉาบมือสอง<br> & sound sampling drums</p>
+    </div>
+
+    <div>
+        <h2 style="color: black;">ช่องทางการติดต่อ</h2>
+        <div class="start">
+            <i class="fa-brands fa-facebook fa-xl" style="color: #686868; font-size: 18px; ">
+                เพจการเดินทางของกลองมือสอง
+            </i><br><br>
+            <i class="fa-solid fa-phone fa-xl" style="color: #686868; font-size: 18px; "> 0880446358</i>
+        </div>
+    </div>
+
+</section>
+<footer>
+    <div class="footer-content">
+        <p class="font-footer">© 2024 DRUM JOURNEY</p>
+    </div>
+</footer>
+{% endblock %}

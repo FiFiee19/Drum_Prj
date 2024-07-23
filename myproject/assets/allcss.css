@@ -1,6 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+  --header-height:3.5rem;
+  --body-font:"Poppins", sans-serif;
+  --second-font: "Castoro Titling", sans-serif;
+  --first-color:hsla(0, 0%, 29%, 0.6);
+  --first-color-dark:hsla(0, 0%, 18%, 0.6);
+  --first-color-darken:hsla(0, 0%, 0%, 0.6);
+}
 * {
   margin: 0;
   padding: 0;
@@ -8,15 +15,30 @@
   font-family: "Merriweather", serif;
   font-weight: 200;
   text-decoration: none;
+  
 }
 
 body {
-  background-color: #414141;
+  background-image: url("images/bg.png");
+}
+
+.header {
+  position:fixed;
+  width: 100%;
+  top:0;
+  left:0;
+  background-color:var(--first-color);
+  z-index: var(--x-fixed);
+  transition:box-shadow .4s;
+}
+
+.nav {
+  position: relative
 }
 
 .number {
   font-family: "Roboto", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   font-style: normal;
   position: absolute;
   bottom: 10px;
@@ -34,6 +56,7 @@ nav {
   margin: 0 auto;
   padding: 10px;
   display: flex;
+  justify-content: space-between;
 
 }
 
@@ -91,9 +114,9 @@ a:hover {
   padding-top: 50px;
   padding-bottom: 50px;
   color: rgb(255, 255, 255);
-  font-size: 50px;
+  font-size: 30px;
   font-family: "Merriweather", serif;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .container {
@@ -101,22 +124,22 @@ a:hover {
   margin: 0 auto;
   padding: 20px;
   display: flex;
-  justify-content: flex-start;
-  /* จัดการ์ดไปทางซ้าย */
-  flex-wrap: wrap;
-  /* ให้การ์ดอยู่ในแถวถัดไปเมื่อเต็มแถวปัจจุบัน */
+  justify-content: space-between; /* จัดการ์ดไปทางซ้าย */
+  align-items: flex-start; /* จัดการ์ดให้อยู่จุดเริ่มต้นแนวตั้ง */
+  flex-wrap: wrap; /* ให้การ์ดอยู่ในแถวถัดไปเมื่อเต็มแถวปัจจุบัน */
   gap: 25px;
 }
 
 .card {
   width: 350px;
-  height: 390px;
+  height: 350px;
   background: rgb(242, 242, 242);
-  border-radius: 15px;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
+
 }
 
 .card:hover {
@@ -142,16 +165,21 @@ a:hover {
   font-family: "Roboto", sans-serif;
   font-style: Italic;
   font-weight: 100;
+  color: #000000;
 }
 
+.description:hover {
+  color: rgb(46, 46, 46);
+}
 .table-container {
   margin: 20px;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
+
 }
+
 h2 {
   flex: 1;
   text-align: center;
@@ -159,14 +187,14 @@ h2 {
   margin-bottom: 20px;
   margin-top: 20px;
   color: white;
-  
+
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: 16px;
-  
+
 }
 
 thead {
@@ -187,10 +215,12 @@ td {
   font-family: "Roboto", sans-serif;
   border-bottom: 1px solid #ddd;
 }
-.left{
+
+.left {
   text-align: left;
 }
-.center{
+
+.center {
   text-align: center;
 }
 
@@ -207,6 +237,9 @@ td {
   border: none;
   border-radius: 15px;
 }
+.button-edit:hover {
+  color: #545454;
+}
 
 .button-delete {
   display: inline-block;
@@ -221,6 +254,10 @@ td {
   border: none;
   border-radius: 15px;
 }
+.button-delete:hover {
+  color: #545454;
+}
+
 
 .button-add {
   display: inline-block;
@@ -235,18 +272,21 @@ td {
   border: none;
   border-radius: 15px;
 }
+
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
 }
+
 .alert {
   padding: 20px;
-  background-color: #4CAF50; 
+  background-color: #4CAF50;
   color: white;
   margin-bottom: 15px;
 }
+
 .closebtn {
   margin-left: 15px;
   color: white;
@@ -257,17 +297,21 @@ td {
   cursor: pointer;
   transition: 0.3s;
 }
+
 .closebtn:hover {
   color: black;
 }
+
 .form-group {
   margin-bottom: 15px;
 }
+
 .form-group label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
+
 .form-group input {
   width: 100%;
   padding: 10px;
@@ -275,10 +319,12 @@ td {
   border: 1px solid #ced4da;
   border-radius: 4px;
 }
+
 .form-group input:focus {
   border-color: #80bdff;
   outline: none;
 }
+
 .btn {
   display: inline-block;
   padding: 10px 15px;
@@ -292,9 +338,42 @@ td {
   border-radius: 4px;
   transition: background-color 0.3s;
 }
-.btn:hover {
-  background-color: #0056b3;
+
+.btn-search {
+  padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f38f38;
+    color: white;
+    cursor: pointer;
+    height: 35px; /* กำหนดความสูงให้เท่ากับช่องกรอกข้อความ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.btn-search:hover {
+  background-color: #fda151;
+}
+
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    height: 30px; /* กำหนดความสูง */
+    background-color: #fff; /* สีพื้นหลัง */
+    color: #333; /* สีข้อความ */
+    margin-right: 5px; /* เพิ่มระยะห่างทางขวา */
+}
+
 .container-forms {
   max-width: 600px;
   margin: 50px auto;
@@ -303,3 +382,95 @@ td {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
+
+.image-container {
+
+  position: relative;
+  display: inline-block;
+  /* หรือ 'block' ตามที่ต้องการ */
+  margin: 10px;
+}
+
+.editable-image {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  /* ปรับตามต้องการ */
+  height: auto;
+}
+
+.card-link {
+  text-decoration: none;
+  color: black;
+  
+}
+.footer {
+  width: 100;
+  height: 2vw;
+  background-color: #ddd;
+}
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+}
+.font-footer{
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  
+}
+.footer-content a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.container-footer {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  height: 200px; /* กำหนดความสูงเป็น 300px */
+  padding: 10px; /* เพิ่ม padding รอบ ๆ footer */
+}
+
+.description-store {
+  font-family: "Roboto", sans-serif;
+  margin: 0 ;
+}
+
+.detail{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 10px;
+}
+.price-detail{
+  margin-left: auto;
+}
+.img-detail{
+display: flex; 
+align-items: center; 
+flex-direction: column; 
+gap: 10px;
+}
+@media (max-width: 768px) {
+
+  .container {
+    justify-content: center; /* จัดให้อยู่ตรงกลางสำหรับหน้าจอขนาดเล็ก */
+
+  }
+
+  .card {
+    width: 100%; /* ให้การ์ดมีความกว้างเต็มที่ */
+    max-width: 300px; /* ความกว้างสูงสุดของการ์ด */
+  }
+}
+

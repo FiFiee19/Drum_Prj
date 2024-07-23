@@ -9,30 +9,57 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title> 
 </head>
 
 <body>
-    <nav>
-    </nav>
-    <div class="container-logo">
-        <a href="#" class="link-a">
+    <!-- <nav>
+    </nav> -->
+    <header class="header" id="header">
+        <nav class="container">
+            <a href="#" class="nav__logo">DRUM</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__link">
+                        <a href="#" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__link">
+                        <a href="#" class="nav__link">About</a>
+                    </li>
+                    <li class="nav__link">
+                        <a href="#" class="nav__link">Products</a>
+                    </li>
+                    <li class="nav__link">
+                        <a href="#" class="nav__link">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="nav__close"></div>
+            </div>
+        </nav>
+    </header>
+    <!-- <div class="container-logo">
+        <a href="/" class="link-a">
             <img class="logo" src="{% static 'images/logo.png'%}">   
             <h2 class="logoname">DRUM JOURNEY</h2>
         </a>
-        <div class="links"> 
-        <a href="#" class="text-color">About us</a>
-        <a href="#" class="text-color">Products</a>
-        <a href="#" class="text-color">Contact</a>
+        <div class="links">
+            <form action="{% url 'index' %}" method="GET" class="search-form">
+                <input type="text" name="search" class="form-control" placeholder="Search">
+                <button type="submit" class="btn-search">Search</button>
+            </form>
         </div>
-        <a class="icon-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </a>
-    </div>
+        
+    </div> -->
     {% block title %}
     {% endblock %}
 
     {% block content %}
+    {% endblock %}
+
+    {% block footer %}
     {% endblock %}
 
 
